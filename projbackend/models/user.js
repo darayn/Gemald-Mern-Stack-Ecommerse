@@ -28,7 +28,7 @@ const uuidv1 = require('uuid/v1');
     },
     contact: {
         type: Number,
-        required: true
+        required: false
     },
     //i added contact
     encry_password: {

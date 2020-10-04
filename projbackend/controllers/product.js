@@ -71,28 +71,28 @@ exports.getProduct = (req,res) => {
 // middleware
 exports.photo = (req,res,next) => {
     if(req.product.photo.data){
-        res.set("Content-Type", req.req.product.photo.contentType)
+        res.set("Content-Type", req.product.photo.contentType)
         return res.send(req.product.photo.data)
     }
     next();
 }
 
 
-exports.deleteProduct = (req,res) => {
+exports.deleteProduct = (req, res) => {
     let product = req.product;
-    product.remove((err,deletedProduct) => {
-        if(err){
-            return res.status(400).json({
-                error: "Failed to delete the product"
-            })
-            
-        }
-        res.json({
-            message: "Deletion was a success",
-            deletedProduct
-        })
-    })
-};
+    product.remove((err, deletedProduct) => {
+      if (err) {
+        return res.status(400).json({
+          error: "Failed to delete the product"
+        });
+      }
+      res.json({
+        message: "Deletion was a success",
+        deletedProduct
+      });
+    });
+  };
+  
 exports.updateProduct = (req,res) => {
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;

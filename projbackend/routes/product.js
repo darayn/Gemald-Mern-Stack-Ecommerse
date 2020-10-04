@@ -18,10 +18,23 @@ router.post("/product/create/:userId",isSignedIn, isAuthenticated,isAdmin,create
 router.get("/product/:productId", getProduct);
 router.get("/product/photo/:productId", photo);
 // delete route
-router.delete("product/:productId/:userId",isSignedIn,isAdmin,isAdmin,deleteProduct)
-// update route
-router.put("product/:productId/:userId",isSignedIn,isAdmin,isAdmin,updateProduct)
-
+//delete route
+router.delete(
+    "/product/:productId/:userId",
+    isSignedIn,
+    isAuthenticated,
+    isAdmin,
+    deleteProduct
+  );
+  
+  //update route
+  router.put(
+    "/product/:productId/:userId",
+    isSignedIn,
+    isAuthenticated,
+    isAdmin,
+    updateProduct
+  );
 // listing route 
 
 router.get("/products", getAllProducts)
